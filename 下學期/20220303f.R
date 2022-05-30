@@ -1,0 +1,42 @@
+install.packages("readr")
+library(readr)
+setwd("C:/Users/shain")
+dir()
+Data <- read.csv("士林.csv")
+Data <- subset(Data,itemname=="溫度")
+Data <- Data[1:61,6:29]
+View(Data)
+
+Data$monitorvalue00 <- as.numeric(as.character(Data$monitorvalue00))
+Data$monitorvalue01 <- as.numeric(as.character(Data$monitorvalue01))
+Data$monitorvalue02 <- as.numeric(as.character(Data$monitorvalue02))
+Data$monitorvalue03 <- as.numeric(as.character(Data$monitorvalue03))
+Data$monitorvalue04 <- as.numeric(as.character(Data$monitorvalue04))
+Data$monitorvalue05 <- as.numeric(as.character(Data$monitorvalue05))
+Data$monitorvalue06 <- as.numeric(as.character(Data$monitorvalue06))
+Data$monitorvalue07 <- as.numeric(as.character(Data$monitorvalue07))
+Data$monitorvalue08 <- as.numeric(as.character(Data$monitorvalue08))
+Data$monitorvalue09 <- as.numeric(as.character(Data$monitorvalue09))
+Data$monitorvalue10 <- as.numeric(as.character(Data$monitorvalue10))
+Data$monitorvalue11 <- as.numeric(as.character(Data$monitorvalue11))
+Data$monitorvalue12 <- as.numeric(as.character(Data$monitorvalue12))
+Data$monitorvalue13 <- as.numeric(as.character(Data$monitorvalue13))
+Data$monitorvalue14 <- as.numeric(as.character(Data$monitorvalue14))
+Data$monitorvalue15 <- as.numeric(as.character(Data$monitorvalue15))
+Data$monitorvalue16 <- as.numeric(as.character(Data$monitorvalue16))
+Data$monitorvalue17 <- as.numeric(as.character(Data$monitorvalue17))
+Data$monitorvalue18 <- as.numeric(as.character(Data$monitorvalue18))
+Data$monitorvalue19 <- as.numeric(as.character(Data$monitorvalue19))
+Data$monitorvalue20 <- as.numeric(as.character(Data$monitorvalue20))
+Data$monitorvalue21 <- as.numeric(as.character(Data$monitorvalue21))
+Data$monitorvalue22 <- as.numeric(as.character(Data$monitorvalue22))
+Data$monitorvalue23 <- as.numeric(as.character(Data$monitorvalue23))
+
+
+colnames(Data) = c('0','1','2','3','4','5','6','7','8','9','10','11','12','13','14',
+                   '15','16','17','18','19','20','21','22','23')
+boxplot(Data, xlab = '時間', ylab = '溫度', main = '士林區溫度變化'
+        ,col = rainbow(23), outline = TRUE)
+
+abline( h =11 ,col = 'red', lty = 2)
+abline( h =21 ,col = 'red', lty = 2)
